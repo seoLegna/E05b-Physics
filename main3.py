@@ -58,6 +58,7 @@ class Window(arcade.Window):
                     a.dy = 0.7*abs(a.dy)
                 if a.center_y < c.center_y:
                     a.dy = 0.7*abs(a.dy) * -1
+            #considering that the acceleration is a.dy/1 that is per second. The amount of force after collision is the mass of the balls*a.dy.
 
 
 
