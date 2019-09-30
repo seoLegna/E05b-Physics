@@ -46,18 +46,14 @@ class Window(arcade.Window):
             a.center_x += a.dx
             a.center_y += a.dy
 
-
-
             collisions = a.collides_with_list(self.animal_list)
             for c in collisions:
-                if a.center_x > c.center_x:
-                    a.dx = 0.7*abs(a.dx) * -1
-                if a.center_x < c.center_x:
-                    a.dx = 0.7*abs(a.dx)
-                if a.center_y > c.center_y:
-                    a.dy = 0.7*abs(a.dy)
-                if a.center_y < c.center_y:
-                    a.dy = 0.7*abs(a.dy) * -1
+                temp_x = a.dx
+                temp_y = a.dy
+                a.dx = c.dx 
+                a.dy = c.dy
+                c.dx = temp_x
+                c.dy = temp_y
             #considering that the acceleration is a.dy/1 that is per second. The amount of force after collision is the mass of the balls*a.dy.
 
 
